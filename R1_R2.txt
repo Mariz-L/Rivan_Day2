@@ -1,0 +1,28 @@
+!@R1
+conf t
+int e1/0
+ip add 10.0.16.1 255.255.248.0
+no shut
+end
+
+
+!@R2
+conf t
+int e1/2
+ip add 10.0.23.254 255.255.248.0
+no shut
+end
+
+
+pretend to have mistake 
+!@R2
+conf t
+int e1/2
+ip add 10.0.25.1 255.255.248.0
+no shut
+end
+
+
+ping 10.0.16.1
+0 percent success rate cause it is not in the same subnet
+
